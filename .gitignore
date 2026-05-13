@@ -1,23 +1,39 @@
-@"
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.python-version
 .venv/
 venv/
+env/
+
+# Environment/secrets
+.env
+.env.*
+!.env.example
 
 # QGIS temporary/backups
 *.qgz~
 *.qgs~
-*.bak
-*.tmp
+*.qgs.bak
+*.qgz.bak
+*.qml~
+*.aux.xml
 
-# Database exports/backups that may become large
+# Database exports/backups
 *.backup
 *.dump
 *.sql.gz
+*.psql
+db_dumps/
+dumps/
 
 # OS/editor
 .DS_Store
 Thumbs.db
+desktop.ini
 .vscode/
-"@ | Out-File -Encoding utf8 .gitignore
+
+# Cache
+cache/
+.cache/
