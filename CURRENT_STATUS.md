@@ -45,6 +45,27 @@ QGIS projects are stored in `qgis/`:
 
 The inspected QGIS projects reference route layers including normal, morning, evening, and real/dynamic route variants.
 
+## QGIS verification
+
+The QGIS project `qgis/Final_working.qgz` opens correctly and connects to the `smart_routes` PostgreSQL/PostGIS database.
+
+The following route layers are visible in QGIS:
+
+### Using pgRouting
+
+- `Normal`
+- `Morning`
+- `Evening`
+
+### Manually created SQL views
+
+- `route_dynamic_real`
+- `route_evening_real`
+- `route_morning_real`
+- `route_normal_real`
+
+The route views were also verified in PostgreSQL and contain records, confirming that the database and QGIS visualization are connected.
+
 ## Safety Status
 
 The Python importer now defaults to `roads_raw_test` instead of `roads_raw`.
