@@ -57,6 +57,24 @@ Expected route layers/views:
 
 These are the layers that should appear in QGIS when connected to `smart_routes`.
 
+## Context And Field Layers
+
+`context_reports`
+
+Manual or simulated context reports used by the context-aware routing workflow.
+
+`mobile_observations`
+
+MerginMaps-ready editable point layer for field observations such as congestion, accidents, road works, danger zones, events, blocked roads, and POIs. This is the preferred mobile collection table.
+
+`mobile_context_penalties`
+
+View that converts mobile observation types into routing penalty multipliers.
+
+`roads_near_mobile_context`
+
+View that finds road segments within 50 meters of mobile observations and exposes the possible routing cost impact.
+
 ## Verification Queries
 
 ```sql
@@ -79,6 +97,23 @@ Check route layers:
 SELECT COUNT(*) FROM public.route_normal_real;
 SELECT COUNT(*) FROM public.route_morning_real;
 SELECT COUNT(*) FROM public.route_evening_real;
+```
+
+Check mobile context layers:
+
+```sql
+SELECT COUNT(*) FROM public.mobile_observations;
+
+SELECT
+    road_id,
+    observation_type,
+    severity,
+    confidence,
+    penalty_multiplier,
+    ROUND(distance_meters::numeric, 2) AS distance_meters
+FROM public.roads_near_mobile_context
+ORDER BY distance_meters
+LIMIT 20;
 ```
 
 ## Rebuild Warning

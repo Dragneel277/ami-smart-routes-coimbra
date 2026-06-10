@@ -51,6 +51,35 @@ WHERE table_schema = 'public'
 ORDER BY table_name;
 ```
 
+## Create Mobile Field Observation Layer
+
+Use this when preparing the MerginMaps/QGIS field collection workflow:
+
+```powershell
+& "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d smart_routes -f "sql/06_context/05_create_mobile_observations.sql"
+```
+
+The script creates:
+
+- `mobile_observations`
+- `mobile_context_penalties`
+- `roads_near_mobile_context`
+
+Verify the bridge between field observations and nearby road segments:
+
+```sql
+SELECT
+    road_id,
+    observation_type,
+    severity,
+    confidence,
+    penalty_multiplier,
+    ROUND(distance_meters::numeric, 2) AS distance_meters
+FROM roads_near_mobile_context
+ORDER BY distance_meters
+LIMIT 20;
+```
+
 ## Safe Python Import Test
 
 The importer reads:

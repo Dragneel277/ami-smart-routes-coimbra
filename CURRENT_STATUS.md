@@ -23,6 +23,13 @@ Known working views/layers:
 - `route_morning_real`
 - `route_evening_real`
 
+Prepared context and field layers:
+
+- `context_reports`
+- `mobile_observations`
+- `mobile_context_penalties`
+- `roads_near_mobile_context`
+
 ## Current Route Logic
 
 The routing model uses multiple costs on the road network:

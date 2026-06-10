@@ -21,6 +21,7 @@ sql/
   03_routing/       pgRouting experiments and route queries
   04_dynamic_costs/ Time-dependent cost function and traffic cost scripts
   05_views/         QGIS-facing route and road views
+  06_context/       Context, route request, and MerginMaps field layers
   99_old/           Older or experimental SQL kept for reference
 python/
   download/         OSMnx download scripts
@@ -70,5 +71,11 @@ List tables and views:
 ```
 
 Expected core tables include `roads_raw`, `roads`, and `roads_vertices`. Expected QGIS-facing route layers include `route_normal`, `route_morning`, `route_evening`, `route_dynamic_real`, `route_normal_real`, `route_morning_real`, and `route_evening_real`.
+
+Create the MerginMaps-ready mobile observation layer and field-to-routing bridge:
+
+```powershell
+& "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d smart_routes -f "sql/06_context/05_create_mobile_observations.sql"
+```
 
 See [RUNBOOK.md](RUNBOOK.md), [DATABASE_SCHEMA.md](DATABASE_SCHEMA.md), [QGIS_GUIDE.md](QGIS_GUIDE.md), and [CURRENT_STATUS.md](CURRENT_STATUS.md) for detailed operational notes.
