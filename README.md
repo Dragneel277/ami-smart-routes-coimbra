@@ -30,8 +30,21 @@ qgis/               QGIS project files
 data/
   raw/              Source GeoJSON data
   processed/        Exports/results
-docs/               Images and supporting documentation assets
+docs/
+  presentation_assets/ Screenshots and figures used by the final presentation
+presentation/       Teacher template and final presentation exports
 ```
+
+## Presentation Materials
+
+Keep presentation source and export files in `presentation/`:
+
+- `ModeloApresentacao.pptx`
+- `apresentacao_final.pptx`
+- `apresentacao_final.pdf`
+
+Keep screenshots and figures used by the presentation in
+`docs/presentation_assets/`. See its README for the planned asset list.
 
 ## Important Safety Notes
 
