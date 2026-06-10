@@ -403,44 +403,4 @@ O sistema converte observações locais, eventos urbanos e zonas de maior fluxo 
 Este projeto demonstra uma aplicação prática de Ambient Intelligence, na qual o sistema adapta o cálculo da rota ao contexto urbano e temporal, apoiando decisões de mobilidade em Coimbra.
 ```
 
-## 16. Possíveis Perguntas e Respostas
 
-### Pergunta: Porque é que algumas rotas não mudam de geometria?
-
-Resposta:
-
-```text
-Porque o pgRouting escolhe sempre a rota com menor custo acumulado. Em alguns casos, mesmo com penalizações, a rota original continua a ser a melhor alternativa. Nesses casos, a geometria mantém-se, mas o custo contextual aumenta.
-```
-
-### Pergunta: As penalizações são reais?
-
-Resposta:
-
-```text
-As penalizações foram definidas com base em observações locais e regras simples. O objetivo é demonstrar a lógica de adaptação ao contexto. Futuramente poderiam ser substituídas por dados reais de trânsito ou sensores.
-```
-
-### Pergunta: Porque usar PostGIS e pgRouting?
-
-Resposta:
-
-```text
-PostGIS permite armazenar e analisar dados espaciais, enquanto pgRouting permite calcular caminhos sobre uma rede viária modelada como grafo. Juntos, permitem integrar contexto urbano diretamente no cálculo das rotas.
-```
-
-### Pergunta: Qual é a ligação com Ambient Intelligence?
-
-Resposta:
-
-```text
-A ligação está na adaptação automática ao contexto. O sistema altera o comportamento do cálculo de rotas conforme o período temporal, eventos e observações locais, sem depender apenas de uma rota estática.
-```
-
-### Pergunta: Que dados são sensíveis?
-
-Resposta:
-
-```text
-O projeto não recolhe dados pessoais identificáveis. Os pontos são observações urbanas e não trajetos individuais de utilizadores. Mesmo assim, a localização deve ser tratada com cuidado, evitando associar dados a pessoas específicas.
-```
